@@ -80,8 +80,13 @@ body{
 }
 
 .content-container p{
-    font-size: larger;
+    font-size: clamp(12px, 4vmin, 18px);
 }
+
+.content-container h2{
+    font-size: clamp(22px, 5vmin, 28px);
+}
+
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

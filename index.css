@@ -18,6 +18,7 @@
 
 body{
     margin:10px;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .navigation a.active {
@@ -49,10 +50,6 @@ html {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-}
-
-body{
-    font-family:'Courier New', Courier, monospace;
 }
 
 .navigation a{

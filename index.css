@@ -1,0 +1,117 @@
+.header{
+    background-color: rgb(230, 230, 230);
+    padding: 30px 25px;
+    margin: 25px;
+    right: 25px;
+    border-radius: 15px;
+    position: sticky;
+    top: 25px;
+    width: fit-content;
+}
+
+.highlighter{
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 25px;
+}
+
+body{
+    margin:20px;
+}
+
+.navigation a.active {
+    color: rgb(0, 0, 0);
+    font-size: clamp(0px, 5.3vw, 28px);
+    font-weight: bold;
+    word-spacing: -6px;
+    letter-spacing: 2px;
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.9vw;
+}
+
+html {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+
+.navigation-cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+body{
+    font-family:'Courier New', Courier, monospace;
+}
+
+.navigation a{
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: clamp(0px, 5vw, 26px);
+    white-space: nowrap;
+    word-spacing: -6px;
+}
+
+.navigation a:hover{
+    color: rgb(104, 104, 104);
+
+}
+
+.content-container{
+    margin: 25px;
+    padding: 30px;
+    scroll-margin-block-start: 15vh; 
+    background-color: rgb(230, 230, 230);
+    border-radius: 15px;
+    height: 77vh;
+}
+
+.content-container p{
+    font-size: larger;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+.know-cont{
+    display: flex;
+    justify-content:flex-start;
+    align-items: end;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.skill-cont{
+    background-color: aliceblue;
+    padding: 5px;
+    margin-inline: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+.skillH{
+    font-size: 18px;
+    text-align: center;
+    padding-inline: 16px;
+}
+

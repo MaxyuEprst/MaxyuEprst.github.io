@@ -1,7 +1,7 @@
 .header{
     background-color: rgb(230, 230, 230);
     padding: 30px 25px;
-    margin: 25px;
+    margin-inline: 2.6vw;
     right: 25px;
     border-radius: 15px;
     position: sticky;
@@ -71,7 +71,7 @@ body{
 }
 
 .content-container{
-    margin: 25px;
+    margin: 2.6vw;
     padding: 30px;
     scroll-margin-block-start: 15vh; 
     background-color: rgb(230, 230, 230);

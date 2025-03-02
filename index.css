@@ -111,7 +111,7 @@ html {
 }
 
 .skillH{
-    font-size: clamp(10px, 4vmin, 18px);
+    font-size: clamp(8px, 5.3vw, 18px);
     text-align: center;
     padding-inline: 14px;
 }

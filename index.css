@@ -17,7 +17,7 @@
 }
 
 body{
-    margin:20px;
+    margin:10px;
 }
 
 .navigation a.active {
@@ -25,7 +25,6 @@ body{
     font-size: clamp(0px, 5.3vw, 28px);
     font-weight: bold;
     word-spacing: -6px;
-    letter-spacing: 2px;
 }
 
 .navigation {
@@ -67,13 +66,14 @@ body{
 
 .navigation a:hover{
     color: rgb(104, 104, 104);
-
 }
 
 .content-container{
-    margin: 2.6vw;
+    margin-top: 3vh;
+    margin-left: 2.6vw;
+    margin-right: 2.6vw;
     padding: 30px;
-    scroll-margin-block-start: 15vh; 
+    scroll-margin-block-start: 17vh; 
     background-color: rgb(230, 230, 230);
     border-radius: 15px;
     height: 77vh;
@@ -103,7 +103,6 @@ body{
 
 .skill-cont{
     background-color: aliceblue;
-    padding: 5px;
     margin-inline: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
@@ -112,6 +111,6 @@ body{
 .skillH{
     font-size: 18px;
     text-align: center;
-    padding-inline: 16px;
+    padding-inline: 14px;
 }
 

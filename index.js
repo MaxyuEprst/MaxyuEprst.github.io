@@ -1,8 +1,12 @@
 window.addEventListener('load', function () {
     const sections = document.querySelectorAll('.content-container');
-    const navLinks = document.querySelectorAll('.navigation a');
+    const navLinks = document.querySelectorAll('nav a');
     let currentPos = 0;
-
+    const header = document.getElementsByTagName('nav')[0];
+    const headerH = header.offsetHeight + 50; 
+    sections.forEach(section => {
+        section.style.scrollMarginBlockStart = `${headerH}px`; // Устанавливаем CSS-свойство
+    });
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
@@ -30,4 +34,6 @@ window.addEventListener('load', function () {
             navLinks[currentPos].click();
         }
     });
+
+    
 }); 

@@ -1,19 +1,20 @@
 .header{
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(116, 133, 180);
     padding: 30px 25px;
     margin-inline: 2.6vw;
-    right: 25px;
     border-radius: 15px;
     position: sticky;
     top: 25px;
+    margin-left: 25px;
     width: fit-content;
-    border-color: black;
-    border-style: groove;
-    border-width: 4px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
 }
 
 body{
     margin:10px;
+    background-color: rgb(132, 134, 160);
     font-family: "Handjet", serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -21,16 +22,17 @@ body{
     font-variation-settings:
       "ELGR" 1,
       "ELSH" 2;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
 }
 
-.navigation a.active {
-    color: rgb(0, 0, 0);
+nav a.active {
+    color: rgb(255, 255, 255);
     font-size: clamp(0px, 5.3vw, 32px);
     font-weight: bold;
-
 }
 
-.navigation {
+nav {
     display: flex;
     flex-wrap: wrap;
     gap: 1.9vw;
@@ -54,15 +56,15 @@ html {
     margin: 0 auto;
 }
 
-.navigation a{
-    color:rgb(0, 0, 0);
+nav a{
+    color:rgb(214, 214, 214);
     text-decoration: none;
     transition: 0.2s;
     font-size: clamp(0px, 5vw, 30px);
     white-space: nowrap;
 }
 
-.navigation a:hover{
+nav a:hover{
     color: rgb(104, 104, 104);
 }
 .content-container .content-wrapper {
@@ -70,26 +72,24 @@ html {
     overflow-y: auto; /* Прокрутка только внутри контента */
 }
 .content-container{
-    margin-top: 3vh;
+    margin-bottom: 6vh;
     margin-left: 2.6vw;
     margin-right: 2.6vw;
     padding: 30px;
-    scroll-margin-block-start: 28vmin; 
-    background-color: rgb(196, 196, 196);
+    background-color: #222;
     border-radius: 15px;
     min-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
     overflow: visible; /* Убираем прокрутку внутри контейнера */
-    border-color: black;
-    border-style: groove;
-    border-width: 2px;
 }
 
 .content-container p{
     font-size: clamp(14px, 5vmin, 24px);
+    color: white;
 }
 
 .content-container h2{
     font-size: clamp(22px, 6vmin, 34px);
+    color: white;
 }
 
 
@@ -112,7 +112,7 @@ html {
 }
 
 .skill-cont{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     margin-inline: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
@@ -123,7 +123,7 @@ html {
     font-size: clamp(14px, 2.5vw, 24px);
     text-align: center;
     padding-inline: 14px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     margin: 5px;
 }   
 

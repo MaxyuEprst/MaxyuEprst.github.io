@@ -18,14 +18,20 @@
 
 body{
     margin:10px;
-    font-family:'Courier New', Courier, monospace;
+    font-family: "Handjet", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "ELGR" 1,
+      "ELSH" 2;
 }
 
 .navigation a.active {
     color: rgb(0, 0, 0);
-    font-size: clamp(0px, 5.3vw, 28px);
+    font-size: clamp(0px, 5.3vw, 32px);
     font-weight: bold;
-    word-spacing: -6px;
+
 }
 
 .navigation {
@@ -56,9 +62,8 @@ html {
     color:rgb(0, 0, 0);
     text-decoration: none;
     transition: 0.2s;
-    font-size: clamp(0px, 5vw, 26px);
+    font-size: clamp(0px, 5vw, 30px);
     white-space: nowrap;
-    word-spacing: -6px;
 }
 
 .navigation a:hover{
@@ -74,14 +79,15 @@ html {
     background-color: rgb(230, 230, 230);
     border-radius: 15px;
     height: 77vh;
+    overflow:scroll;
 }
 
 .content-container p{
-    font-size: clamp(10px, 4vmin, 18px);
+    font-size: clamp(14px, 5vmin, 24px);
 }
 
 .content-container h2{
-    font-size: clamp(18px, 5vmin, 28px);
+    font-size: clamp(22px, 6vmin, 34px);
 }
 
 
@@ -104,14 +110,16 @@ html {
 }
 
 .skill-cont{
-    background-color: aliceblue;
+    background-color: rgb(0, 0, 0);
     margin-inline: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
 }
 
 .skillH{
-    font-size: clamp(14px, 1.9vw, 20px);
+    font-size: clamp(14px, 2.5vw, 24px);
     text-align: center;
     padding-inline: 14px;
+    color: rgb(255, 255, 255);
 }
+

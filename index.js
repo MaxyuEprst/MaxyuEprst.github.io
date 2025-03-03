@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
     const header = document.getElementsByTagName('nav')[0];
     const headerH = header.offsetHeight + 50; 
     sections.forEach(section => {
-        section.style.scrollMarginBlockStart = `${headerH}px`; // Устанавливаем CSS-свойство
+        section.style.scrollMarginBlockStart = `${headerH}px`;
     });
     window.addEventListener('scroll', () => {
         let current = '';

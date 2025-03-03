@@ -1,5 +1,5 @@
 .header{
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(196, 196, 196);
     padding: 30px 25px;
     margin-inline: 2.6vw;
     right: 25px;
@@ -69,17 +69,20 @@ html {
 .navigation a:hover{
     color: rgb(104, 104, 104);
 }
-
+.content-container .content-wrapper {
+    flex-grow: 1; /* Растягиваем контент на всю доступную высоту */
+    overflow-y: auto; /* Прокрутка только внутри контента */
+}
 .content-container{
     margin-top: 3vh;
     margin-left: 2.6vw;
     margin-right: 2.6vw;
     padding: 30px;
-    scroll-margin-block-start: 18vh; 
-    background-color: rgb(230, 230, 230);
+    scroll-margin-block-start: 16vh; 
+    background-color: rgb(196, 196, 196);
     border-radius: 15px;
-    height: 77vh;
-    overflow:scroll;
+    min-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
+    overflow: visible; /* Убираем прокрутку внутри контейнера */
 }
 
 .content-container p{
@@ -114,6 +117,7 @@ html {
     margin-inline: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
+    height: min-content;
 }
 
 .skillH{
@@ -121,5 +125,6 @@ html {
     text-align: center;
     padding-inline: 14px;
     color: rgb(255, 255, 255);
-}
+    margin: 5px;
+}   
 

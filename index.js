@@ -30,4 +30,4 @@ window.addEventListener('load', function () {
             navLinks[currentPos].click();
         }
     });
-});
+}); 

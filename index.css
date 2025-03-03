@@ -7,13 +7,9 @@
     position: sticky;
     top: 25px;
     width: fit-content;
-}
-
-.highlighter{
-    background-color: black;
-    width: 10px;
-    height: 10px;
-    border-radius: 25px;
+    border-color: black;
+    border-style: groove;
+    border-width: 4px;
 }
 
 body{
@@ -78,11 +74,14 @@ html {
     margin-left: 2.6vw;
     margin-right: 2.6vw;
     padding: 30px;
-    scroll-margin-block-start: 16vh; 
+    scroll-margin-block-start: 28vmin; 
     background-color: rgb(196, 196, 196);
     border-radius: 15px;
     min-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
     overflow: visible; /* Убираем прокрутку внутри контейнера */
+    border-color: black;
+    border-style: groove;
+    border-width: 2px;
 }
 
 .content-container p{

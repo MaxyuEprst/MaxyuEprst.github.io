@@ -345,16 +345,17 @@ nav a{
   margin: -2px;
 }
 nav a:hover{
-    color: rgb(104, 104, 104);
+    color: rgb(255, 255, 255);
 }
 .content-container .content-wrapper {
     flex-grow: 1; /* Растягиваем контент на всю доступную высоту */
     overflow-y: auto; /* Прокрутка только внутри контента */
 }
+
 .content-container{
     margin-bottom: 6vh;
-    margin-left: 2.6vw;
-    margin-right: 2.6vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
     padding: 30px;
     background-color: #222;
     min-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
@@ -429,6 +430,79 @@ nav a:hover{
     align-items: end;
     flex-wrap: wrap;
     z-index: 1;
+}
+
+.bcs{
+  display: flex;
+  overflow-x: auto;
+  border-radius: 15px;
+  gap: 14px;
+  margin-top: 5vh;
+  height: 100%;
+  
+}
+
+.brainchild{
+  background-color: rgb(0, 0, 0);
+  border-radius: 15px;
+  min-width: 20vw;
+  width: fit-content;
+  height: 65vh;
+  transition: 0.2s;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  cursor: pointer;
+} 
+
+
+.brainchild:hover{
+  background-color: rgb(39, 39, 39);
+} 
+
+.bcwp{
+  padding: 10px;
+}
+
+@media (min-width: 1100px) {
+  .brainchild{
+    max-width: 30vw;
+  }
+}
+
+@media (max-width: 1100px) {
+  .brainchild{
+    min-width: 50vw;
+  }
+}
+@media (max-width: 570px) {
+  .brainchild{
+    min-width: 65vw;
+  }
+}
+
+.brainchild p{
+  padding-inline: 4%;
+}
+
+.brainchild h2{
+  text-align: center;
+  padding-inline: 6%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.bcp{
+  display: block;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
 }
 
 .skill-cont{

@@ -434,8 +434,8 @@ nav a:hover{
 
 .bcs{
   display: flex;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   border-radius: 15px;
   gap: 14px;
   margin-top: 5vh;

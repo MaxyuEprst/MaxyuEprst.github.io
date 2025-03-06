@@ -6,7 +6,7 @@
 }
 
 .header {
-	background-color: rgb(89, 46, 131);
+	background-color: var(--color-navy);
 	padding: 30px 25px;
 	position: -webkit-sticky;
 	position: sticky;
@@ -31,7 +31,7 @@ body {
 }
 
 nav a.active {
-	color: rgb(255, 255, 255);
+	color: var(--color-white);
 	font-size: clamp(0px, 5.3vw, 32px);
 	font-weight: bold;
 }
@@ -55,7 +55,7 @@ html {
 }
 
 nav a {
-	color: rgb(214, 214, 214);
+	color: var(--color-white);
 	text-decoration: none;
 	transition: 0.2s;
 	font-size: clamp(0px, 5vw, 30px);
@@ -602,7 +602,7 @@ nav a {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background: #ffffff;
+	background: var(--color-white);
 	display: block;
 	pointer-events: none;
 }
@@ -610,7 +610,7 @@ nav a {
 	margin: -2px;
 }
 nav a:hover {
-	color: rgb(255, 255, 255);
+	color: var(--color-white);
 }
 .content-container .content-wrapper {
 	flex-grow: 1; /* Растягиваем контент на всю доступную высоту */
@@ -622,7 +622,7 @@ nav a:hover {
 	margin-left: 3vw;
 	margin-right: 3vw;
 	padding: 30px;
-	background-color: rgb(35, 12, 51);
+	background-color: var(--color-yellow);
 	min-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
 	overflow: visible; /* Убираем прокрутку внутри контейнера */
 
@@ -708,13 +708,13 @@ nav a:hover {
 .content-container p {
 	padding-left: 18px;
 	font-size: clamp(18px, 5vmin, 24px);
-	color: white;
+	color: rgb(0, 0, 0);
 }
 
 .content-container h2 {
 	padding-left: 24px;
 	font-size: clamp(22px, 6vmin, 34px);
-	color: white;
+	color: rgb(0, 0, 0);
 }
 
 .noselect {
@@ -744,7 +744,7 @@ nav a:hover {
 }
 
 .brainchild {
-	background-color: rgb(153, 132, 212);
+	background-color: var(--color-whgreen);
 	min-width: 20vw;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
@@ -839,7 +839,7 @@ nav a:hover {
 }
 
 .brainchild:hover {
-	background-color: rgb(89, 46, 131);
+	background-color: var(--color-white);
 }
 
 .bcwp {
@@ -914,7 +914,7 @@ nav a:hover {
 }
 
 .skill-cont {
-	background-color: rgb(35, 12, 51);
+	background-color: var(--color-navy);
 	-webkit-margin-start: 15px;
 	        margin-inline-start: 15px;
 	-webkit-margin-after: 12px;

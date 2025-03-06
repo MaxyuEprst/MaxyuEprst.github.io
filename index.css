@@ -21,9 +21,15 @@
 	transition: 0.1s;
 }
 
+.bcs-wrapper {
+    position: relative; /* Делаем контейнер относительным для позиционирования стрелочек */
+    width: 100%; /* Ширина контейнера */
+    overflow: hidden; /* Скрываем всё, что выходит за пределы */
+}
+
 .arrow img{
 	height: auto;
-	width: clamp(15px, 11vmin, 80px);
+	width: clamp(15px, 7vmin, 40px);
 }
 
 #ar1{

@@ -21,7 +21,6 @@
 	transition: 0.1s;
 }
 
-
 .arrow img{
 	height: auto;
 	width: clamp(15px, 11vmin, 80px);

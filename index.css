@@ -5,6 +5,30 @@
 	--color-navy: #214151;
 }
 
+.arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3; 
+    background: none;
+    border: none;
+    cursor: pointer;
+	opacity: 0.4;
+}
+
+.arrow img{
+	height: auto;
+	width: clamp(15px, 11vmin, 80px);
+}
+
+#ar1{
+	left: 0.7vw;
+}
+
+#ar2{
+	right: 0.7vw;
+}
+
 .header {
 	background-color: var(--color-navy);
 	padding: 30px 25px;
@@ -745,9 +769,11 @@ nav a:hover {
 	gap: 14px;
 	margin-top: 3vh;
 	height: 100%;
+	position: relative;
 }
 
 .brainchild {
+	position: relative;
 	background-color: var(--color-navy);
 	min-width: 20vw;
 	width: -webkit-fit-content;

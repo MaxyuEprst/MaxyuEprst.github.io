@@ -20,7 +20,7 @@
 
 body {
 	margin: 10px;
-	background-color: rgb(132, 134, 160);
+	background-color: var(--color-navy);
 	font-family: "Handjet", serif;
 	font-optical-sizing: auto;
 	font-weight: 500;
@@ -28,10 +28,11 @@ body {
 	font-variation-settings: "ELGR" 1, "ELSH" 2;
 	font-smooth: never;
 	-webkit-font-smoothing: none;
+
 }
 
 nav a.active {
-	color: var(--color-white);
+	color: var(--color-whgreen);
 	font-size: clamp(0px, 5.3vw, 32px);
 	font-weight: bold;
 }
@@ -61,6 +62,7 @@ nav a {
 	font-size: clamp(0px, 5vw, 30px);
 	white-space: nowrap;
 }
+
 .pixel-corners,
 .pixel-corners--wrapper {
 	-webkit-clip-path: polygon(
@@ -621,8 +623,8 @@ nav a:hover {
 	margin-bottom: 6vh;
 	margin-left: 3vw;
 	margin-right: 3vw;
-	padding: 30px;
-	background-color: var(--color-yellow);
+	padding: 3vmin;
+	background-color: var(--color-white);
 	min-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
 	overflow: visible; /* Убираем прокрутку внутри контейнера */
 
@@ -706,16 +708,17 @@ nav a:hover {
 }
 
 .content-container p {
-	padding-left: 18px;
 	font-size: clamp(18px, 5vmin, 24px);
-	color: rgb(0, 0, 0);
+	text-indent: 1.7vw;
 }
 
 .content-container h2 {
-	padding-left: 24px;
-	font-size: clamp(22px, 6vmin, 34px);
-	color: rgb(0, 0, 0);
+	padding-left: 1vw;
+	margin-bottom: 0vh;
+	font-size: clamp(22px, 7vmin, 34px);
 }
+
+
 
 .noselect {
 	-webkit-touch-callout: none; /* iOS Safari */
@@ -739,12 +742,12 @@ nav a:hover {
 	overflow-x: auto;
 	overflow-y: hidden;
 	gap: 14px;
-	margin-top: 5vh;
+	margin-top: 3vh;
 	height: 100%;
 }
 
 .brainchild {
-	background-color: var(--color-whgreen);
+	background-color: var(--color-navy);
 	min-width: 20vw;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
@@ -839,7 +842,7 @@ nav a:hover {
 }
 
 .brainchild:hover {
-	background-color: var(--color-white);
+	opacity: 0.9;
 }
 
 .bcwp {
@@ -855,6 +858,9 @@ nav a:hover {
 @media (max-width: 1100px) {
 	.brainchild {
 		min-width: 50vw;
+	}
+	.content-container {
+		padding: 6vw;
 	}
 }
 @media (max-width: 600px) {
@@ -896,6 +902,7 @@ nav a:hover {
 .brainchild p {
 	padding-inline: 4%;
 	text-align: justify;
+	color: var(--color-whgreen);
 }
 
 .brainchild h2 {
@@ -903,6 +910,7 @@ nav a:hover {
 	padding-inline: 6%;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
+	color: var(--color-whgreen);
 }
 
 .bcp {
@@ -914,7 +922,7 @@ nav a:hover {
 }
 
 .skill-cont {
-	background-color: var(--color-navy);
+	background-color: var(--color-whgreen);
 	-webkit-margin-start: 15px;
 	        margin-inline-start: 15px;
 	-webkit-margin-after: 12px;
@@ -974,7 +982,7 @@ nav a:hover {
 	font-size: clamp(14px, 1.5vw, 24px);
 	text-align: center;
 	padding-inline: 14px;
-	color: rgb(255, 255, 255);
+	color: var(--color-navy);
 	margin: 5px;
 	text-shadow: 1px black;
 }

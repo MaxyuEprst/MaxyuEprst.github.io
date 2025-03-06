@@ -980,7 +980,7 @@ nav a:hover {
 }
 
 .skillH {
-	font-size: clamp(14px, 1.5vw, 24px);
+	font-size: clamp(16px, 1.5vw, 24px);
 	text-align: center;
 	padding-inline: 14px;
 	color: var(--color-navy);

@@ -1,3 +1,10 @@
+:root{
+	--color-yellow: #F8DC81;
+	--color-white: #EFF7E1;
+	--color-whgreen: #A2D0C1;
+	--color-navy: #214151;
+}
+
 .header {
 	background-color: rgb(89, 46, 131);
 	padding: 30px 25px;
@@ -8,9 +15,6 @@
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
-	border-width: 3px;
-	border-style: solid;
-	border-color: rgb(255, 255, 255);
 	z-index: 100;
 }
 

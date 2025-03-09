@@ -63,7 +63,6 @@ body {
 	font-variation-settings: "ELGR" 1, "ELSH" 2;
 	font-smooth: never;
 	-webkit-font-smoothing: none;
-
 }
 
 nav a.active {
@@ -781,6 +780,30 @@ nav a:hover {
 	margin-top: 3vh;
 	height: 100%;
 	position: relative;
+}
+
+.more-but .mbt{
+	text-align: center;
+	color: var(--color-white);
+	padding: 0;
+	text-indent: 0;
+	font-size: clamp(22px, 7vmin, 34px);
+}
+
+.more-but{
+	position: absolute;
+	height: 10vh;
+	width: 100%;
+	z-index: 5;
+	bottom:0;
+	background: linear-gradient(to bottom, rgba(12, 12, 99, 0), var(--color-navy) , var(--color-navy));
+	border:none;
+	padding: 0;
+	font-family: "Handjet", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "ELGR" 1, "ELSH" 2;
 }
 
 .brainchild {

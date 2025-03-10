@@ -1,14 +1,14 @@
 window.addEventListener('load', function () {
     const sections = document.querySelectorAll('.content-container');
     const navLinks = document.querySelectorAll('nav a');
-    const bcs = document.querySelector('.bcs'); // Исправлено!
+    const bcs = document.querySelector('.bcs');
     const bcsLinks = document.querySelectorAll('.brainchild');
     const buttonL = document.getElementById('ar1');
-    const buttonR = document.getElementById('ar2'); // Исправлено!
-    let bcsCurP = 0;
+    const buttonR = document.getElementById('ar2');
+    let bcsCurP = 0; // Индекс текущего элемента
     let currentPos = 0;
     const header = document.getElementsByTagName('nav')[0];
-    const headerH = header.offsetHeight + 50; 
+    const headerH = header.offsetHeight + 50;
 
     sections.forEach(section => {
         section.style.scrollMarginBlockStart = `${headerH}px`;
@@ -41,29 +41,48 @@ window.addEventListener('load', function () {
         }
     });
 
-    // Теперь bcs это DOM-элемент, и addEventListener работает
+    // Обновляем индекс текущего элемента при прокрутке
     bcs.addEventListener('scroll', () => {
-        bcsLinks.forEach(bcsLink => {
+        bcsLinks.forEach((bcsLink, index) => {
             const bcsOffset = bcsLink.offsetLeft;
             const bcsWidth = bcsLink.clientWidth;
-            if (pageXOffset >= (bcsOffset - bcsWidth / bcsLinks.length)) {
-                bcsCurP = bcsLink.getAttribute('id');
+            if (bcs.scrollLeft >= bcsOffset - bcsWidth / 2) {
+                bcsCurP = index; // Сохраняем индекс текущего элемента
             }
         });
-
     });
 
-    buttonL.addEventListener('click', function(event) 
-    {
-        let sc = bcsCurP.offsetLeft + 
-        if (bcs.scrollLeft > 0) { // Проверка, что прокрутка не в начале
-            bcs.scrollBy({ left: bcsCurP.offsetLeft, behavior: 'smooth' });
+    // Кнопка влево
+    buttonL.addEventListener('click', function(event) {
+        if (bcsCurP > 0) { // Если текущий элемент не первый
+            bcsCurP--; // Переходим к предыдущему элементу
+            bcs.scrollTo({
+                left: bcsLinks[bcsCurP].offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+        else{
+            bcs.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
         }
     });
 
-    buttonR.addEventListener('click', function(event) { // Исправлено buttonLR → buttonR
-        if (bcs.scrollLeft < bcs.scrollWidth) { // Проверка, что прокрутка не в конце
-            bcs.scrollBy({ left: 200, behavior: 'smooth' });
+    // Кнопка вправо
+    buttonR.addEventListener('click', function(event) {
+        if (bcsCurP < bcsLinks.length - 1) { // Если текущий элемент не последний
+            bcsCurP++; // Переходим к следующему элементу
+            bcs.scrollTo({
+                left: bcsLinks[bcsCurP].offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+        else{
+            bcs.scrollTo({
+                left: bcsLinks[bcsLinks.length - 1].offsetLeft,
+                behavior: 'smooth'
+            });
         }
     });
 });

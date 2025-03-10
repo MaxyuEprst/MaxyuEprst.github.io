@@ -8,7 +8,7 @@
 .arrs-wr {
     display: flex;
     justify-content: center; /* Центрирование по горизонтали */
-    margin-top: -3.5vh; /* Отступ сверху на 10px от brainchild */
+	margin-top: calc(-2.5vh);/* Отступ сверху на 10px от brainchild */
     width: 100%; /* Ширина контейнера */
 }
 

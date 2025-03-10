@@ -54,6 +54,7 @@ body {
 	font-variation-settings: "ELGR" 1, "ELSH" 2;
 	font-smooth: never;
 	-webkit-font-smoothing: none;
+	letter-spacing: 0,5em;
 }
 
 nav a.active {
@@ -72,6 +73,7 @@ html {
 	scroll-behavior: smooth;
 	-ms-overflow-style: none; /* IE 10+ */
 	scrollbar-width: none; /* Firefox */
+	letter-spacing: 0.02em;
 }
 
 ::-webkit-scrollbar {

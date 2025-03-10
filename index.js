@@ -54,8 +54,8 @@ window.addEventListener('load', function () {
 
     // Кнопка влево
     buttonL.addEventListener('click', function(event) {
-        if (bcsCurP > 0) { // Если текущий элемент не первый
-            bcsCurP--; // Переходим к предыдущему элементу
+        if (bcsCurP > 0) {
+            bcsCurP--;
             bcs.scrollTo({
                 left: bcsLinks[bcsCurP].offsetLeft,
                 behavior: 'smooth'

@@ -71,8 +71,8 @@ window.addEventListener('load', function () {
 
     // Кнопка вправо
     buttonR.addEventListener('click', function(event) {
-        if (bcsCurP < bcsLinks.length - 1) { // Если текущий элемент не последний
-            bcsCurP++; // Переходим к следующему элементу
+        if (bcsCurP < bcsLinks.length - 1) {
+            bcsCurP++;
             bcs.scrollTo({
                 left: bcsLinks[bcsCurP].offsetLeft,
                 behavior: 'smooth'

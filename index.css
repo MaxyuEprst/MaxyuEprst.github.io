@@ -23,6 +23,12 @@
     position: static; /* Убираем абсолютное позиционирование */
 	z-index: 99;
 	color:var(--color-white);
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 .bcs-wrapper {
@@ -774,8 +780,13 @@ nav a:hover {
 	margin-top: 3vh;
 	height: 100%;
 	position: relative;
+	-ms-overflow-style: none;  /* Скрываем полосу прокрутки в IE и Edge */
+    scrollbar-width: none;  /* Скрываем полосу прокрутки в Firefox */
 }
 
+.bcs::-webkit-scrollbar {
+    display: none; /* Скрываем полосу прокрутки в WebKit браузерах */
+}
 
 .more-but .mbt{
 	text-align: center;

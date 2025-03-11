@@ -13,6 +13,7 @@
 }
 
 .arrow {
+
     background-color: var(--color-navy);
     border-color: var(--color-white);
     border-style: solid;
@@ -30,6 +31,12 @@
 	user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
+.arrow:hover{
+	color: var(--color-yellow);
+	border-color: var(--color-yellow);
+}
+
+
 
 .bcs-wrapper {
     position: relative; /* Делаем контейнер относительным для позиционирования стрелочек */
@@ -67,6 +74,11 @@ nav a.active {
 	color: var(--color-whgreen);
 	font-size: clamp(0px, 5.3vw, 32px);
 	font-weight: bold;
+}
+
+
+nav a:hover {
+	color: var(--color-yellow);
 }
 
 nav {
@@ -644,9 +656,7 @@ nav a {
 .pixel-corners::after {
 	margin: -2px;
 }
-nav a:hover {
-	color: var(--color-white);
-}
+
 .content-container .content-wrapper {
 	flex-grow: 1; /* Растягиваем контент на всю доступную высоту */
 	overflow-y: auto; /* Прокрутка только внутри контента */
@@ -753,8 +763,6 @@ nav a:hover {
 	font-size: clamp(22px, 7vmin, 34px);
 }
 
-
-
 .noselect {
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */
@@ -810,6 +818,7 @@ nav a:hover {
     font-weight: 500;
     font-style: normal;
     font-variation-settings: "ELGR" 1, "ELSH" 2;
+	cursor:pointer
 }
 
 .brainchild {
@@ -910,6 +919,10 @@ nav a:hover {
 
 .brainchild:hover {
 	opacity: 0.9;
+}
+
+.brainchild:hover .mbt{
+	color:var(--color-yellow)
 }
 
 .bcwp {

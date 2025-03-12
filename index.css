@@ -18,8 +18,8 @@
     border-color: var(--color-white);
     border-style: solid;
     border-width: 0.2rem;
-    height: 5vh;
-    width: clamp(10px, 28vw, 45px);
+    height: 4vmin;
+    width: 4vmin;
     cursor: pointer;
     position: static; /* Убираем абсолютное позиционирование */
 	z-index: 99;
@@ -668,7 +668,7 @@ nav a {
 	margin-right: 3vw;
 	padding: 3vmin;
 	background-color: var(--color-white);
-	/*height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
+	max-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
 	overflow: visible; /* Убираем прокрутку внутри контейнера */
 
 	-webkit-clip-path: polygon(
@@ -757,7 +757,7 @@ nav a {
 }
 
 .content-container h2 {
-	padding-left: 1vw;
+	padding-left: 0.5vw;
 	margin-bottom: 0vh;
 	margin-top: 3vh;
 	font-size: clamp(22px, 7vmin, 34px);
@@ -786,7 +786,6 @@ nav a {
 	overflow-y: hidden;
 	gap: 14px;
 	margin-top: 3vh;
-	height: 100%;
 	position: relative;
 	-ms-overflow-style: none;  /* Скрываем полосу прокрутки в IE и Edge */
     scrollbar-width: none;  /* Скрываем полосу прокрутки в Firefox */
@@ -797,6 +796,7 @@ nav a {
 }
 
 .more-but .mbt{
+	margin-bottom: 4vh;
 	text-align: center;
 	color: var(--color-white);
 	padding: 0;
@@ -806,7 +806,6 @@ nav a {
 
 .more-but{
 	position: absolute;
-	height: 10vh;
 	width: 100%;
 	z-index: 5;
 	bottom:0;
@@ -818,7 +817,7 @@ nav a {
     font-weight: 500;
     font-style: normal;
     font-variation-settings: "ELGR" 1, "ELSH" 2;
-	cursor:pointer
+	cursor:pointer;
 }
 
 .brainchild {
@@ -931,7 +930,7 @@ nav a {
 
 @media (min-width: 1100px) {
 	.brainchild {
-		max-width: 30vw;
+		max-width: 30vmin;
 	}
 	
 	.arrs-wr {
@@ -943,15 +942,20 @@ nav a {
 
 @media (max-width: 1100px) {
 	.brainchild {
-		min-width: 50vw;
+		min-width: 50vmin;
 	}
 	.content-container {
-		padding: 6vw;
+		padding: 2vmax;
+	}
+
+	.arrow {
+		height: 8vmin;
+		width: 8vmin;
 	}
 }
 @media (max-width: 600px) {
 	.brainchild {
-		min-width: 65vw;
+		min-width: 65vmin;
 	}
 
 	.header {

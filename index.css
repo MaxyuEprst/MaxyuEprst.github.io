@@ -45,7 +45,7 @@
 .bcs-wrapper {
     position: relative; /* Делаем контейнер относительным для позиционирования стрелочек */
     width: 100%; /* Ширина контейнера */
-    overflow: hidden; /* Скрываем всё, что выходит за пределы */
+    overflow: visible; /* Скрываем всё, что выходит за пределы */
 }
 
 .header {
@@ -925,7 +925,7 @@ nav a {
 }
 
 .brainchild:hover .mbt{
-	color:var(--color-yellow)
+	color: var(--color-yellow)
 }
 
 .bcwp {
@@ -949,11 +949,7 @@ nav a {
 		min-width: 50vmin;
 	}
 	.content-container {
-		padding: 2vmax;
-	}
-
-	.arrs-wr {
-		padding-bottom: 1000vh;
+		padding: 4vmax;
 	}
 	.arrow {
 		height: 6vmin;

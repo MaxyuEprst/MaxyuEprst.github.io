@@ -10,10 +10,14 @@
     justify-content: center; /* Центрирование по горизонтали */
 	margin-top: calc(-2.5vh);/* Отступ сверху на 10px от brainchild */
     width: 100%; /* Ширина контейнера */
+	padding-bottom: 40vh;
 }
 
 .arrow {
-
+	min-width: 35px;
+	min-height: 35px;
+	max-width: 40px;
+	max-height: 40px;
     background-color: var(--color-navy);
     border-color: var(--color-white);
     border-style: solid;
@@ -948,9 +952,12 @@ nav a {
 		padding: 2vmax;
 	}
 
+	.arrs-wr {
+		padding-bottom: 1000vh;
+	}
 	.arrow {
-		height: 8vmin;
-		width: 8vmin;
+		height: 6vmin;
+		width: 6vmin;
 	}
 }
 @media (max-width: 600px) {

@@ -5,6 +5,7 @@ window.addEventListener('load', function () {
     const bcsLinks = document.querySelectorAll('.brainchild');
     const buttonL = document.getElementById('ar1');
     const buttonR = document.getElementById('ar2');
+    let bcsCurP = 0;
     let currentPos = 0;
     const header = document.getElementsByTagName('nav')[0];
     const headerH = header.offsetHeight + 50;
@@ -40,23 +41,48 @@ window.addEventListener('load', function () {
         }
     });
 
-    // Кнопка влево
-    buttonL.addEventListener('click', function(event) {
-        const visibleWidth = bcs.clientWidth; // Ширина видимой области
-        const newScrollLeft = bcs.scrollLeft - visibleWidth; // Прокрутка на ширину видимой области влево
-        bcs.scrollTo({
-            left: newScrollLeft,
-            behavior: 'smooth'
+    bcs.addEventListener('scroll', () => {
+        bcsLinks.forEach((bcsLink, index) => {
+            const bcsOffset = bcsLink.offsetLeft;
+            const bcsWidth = bcsLink.clientWidth;
+            if (bcs.scrollLeft >= bcsOffset - bcsWidth / 2) {
+                bcsCurP = index;
+            }
         });
     });
 
+    // Кнопка влево
+    buttonL.addEventListener('click', function(event) {
+        if (bcsCurP > 0) {
+            bcsCurP--;
+            bcs.scrollTo({
+                left: bcsLinks[bcsCurP].offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+        else{
+            bcs.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+    });
+    
     // Кнопка вправо
     buttonR.addEventListener('click', function(event) {
-        const visibleWidth = bcs.clientWidth; // Ширина видимой области
-        const newScrollLeft = bcs.scrollLeft + visibleWidth; // Прокрутка на ширину видимой области вправо
-        bcs.scrollTo({
-            left: newScrollLeft,
-            behavior: 'smooth'
-        });
+        if (bcsCurP < bcsLinks.length - 1) {
+            bcsCurP++;
+            bcs.scrollTo({
+                left: bcsLinks[bcsCurP].offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+        else{
+            bcs.scrollTo({
+                left: bcsLinks[bcsLinks.length - 1].offsetLeft,
+                behavior: 'smooth'
+            });
+        }
     });
 });

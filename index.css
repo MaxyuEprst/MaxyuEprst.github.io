@@ -3,6 +3,7 @@
 	--color-white: #EFF7E1;
 	--color-whgreen: #A2D0C1;
 	--color-navy: #214151;
+	--color-navyGlass: #21415191;
 }
 
 .arrs-wr {
@@ -1093,3 +1094,19 @@ nav a {
 	margin: 5px;
 	text-shadow: 1px black;
 }
+
+
+.overlay{
+	background-color: var(--color-navyGlass);
+	width: 100%;
+	height: 100%;
+	z-index: 120;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.overlay.show {
+	display: block;
+  }

@@ -1,8 +1,51 @@
+async function loadProjects() {
+    try {
+        // Получаем данные с помощью fetch()
+        const response = await fetch('/projects.json'); // Убедись, что путь правильный
+        
+        // Преобразуем ответ в JSON
+        const projects = await response.json();
+
+        return projects;
+    } catch (error) {
+        console.error('Ошибка загрузки JSON:', error);
+        return [];
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const bcs = document.querySelector('.bcs');
+    const projects = await loadProjects();
+
+    projects.forEach((project, index) => {
+        let text = `
+            <div class="brainchild" id="b${index + 1}">
+                <button class="more-but"><p class="mbt">Подробнее</p></button>
+                <img src="${project.imageSrc}" class="bcp" />
+                <div class="bcwp">
+                    <h2>${project.title}</h2>
+                    <p class="three-line-ellipsis text-of-prj">
+                        ${project.description}
+                    </p>
+                    <div class="know-cont brch-kn-cont">
+                        ${project.skills.map(skill => `
+                            <div class="skill-cont">
+                                <h4 class="skillH noselect">${skill}</h4>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+        bcs.insertAdjacentHTML("beforeend", text);
+    });
+});
+
 window.addEventListener('load', function () {
-    const sections = document.querySelectorAll('.content-container');
-    const navLinks = document.querySelectorAll('nav a');
     const bcs = document.querySelector('.bcs');
     const bcsLinks = document.querySelectorAll('.brainchild');
+    const sections = document.querySelectorAll('.content-container');
+    const navLinks = document.querySelectorAll('nav a');
     const buttonL = document.getElementById('ar1');
     const buttonR = document.getElementById('ar2');
     const addObj = document.getElementById('add');
@@ -52,8 +95,9 @@ window.addEventListener('load', function () {
         });
     });
 
-    // Кнопка влево
     buttonL.addEventListener('click', function(event) {
+        const bcs = document.querySelector('.bcs');
+        const bcsLinks = document.querySelectorAll('.brainchild');
         if (bcsCurP > 0) {
             bcsCurP--;
             bcs.scrollTo({
@@ -70,8 +114,9 @@ window.addEventListener('load', function () {
     
     });
     
-    // Кнопка вправо
     buttonR.addEventListener('click', function(event) {
+        const bcs = document.querySelector('.bcs');
+        const bcsLinks = document.querySelectorAll('.brainchild');
         if (bcsCurP < bcsLinks.length - 1) {
             bcsCurP++;
             bcs.scrollTo({
@@ -85,37 +130,5 @@ window.addEventListener('load', function () {
                 behavior: 'smooth'
             });
         }
-    });
-
-    addObj.addEventListener('click', function(event) {
-        let text = `<div class="brainchild" id="b1">
-            <button class="more-but"><p class="mbt">Подробнее</p></button>
-            <img src="/bcph_nitt.png" class="bcp" />
-            <div class="bcwp">
-                <h2>Визуальная новелла "NITT"</h2>
-                <p class="three-line-ellipsis text-of-prj">
-                    NITT - это новелла, сочетающая в себе сразу множество жанров:
-                    квест, хоррор, рпг и т.д.
-                </p>
-                <div class="know-cont brch-kn-cont">
-                    <div class="skill-cont">
-                        <h4 class="skillH noselect">Английский язык</h4>
-                    </div>
-                    <div class="skill-cont">
-                        <h4 class="skillH noselect">Русский язык</h4>
-                    </div>
-                    <div class="skill-cont">
-                        <h4 class="skillH noselect">Python</h4>
-                    </div>
-                    <div class="skill-cont">
-                        <h4 class="skillH noselect">Графический дизайн</h4>
-                    </div>
-                    <div class="skill-cont">
-                        <h4 class="skillH noselect">RenPy</h4>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-        bcs.insertAdjacentHTML("beforeend", text);
     });
 });

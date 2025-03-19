@@ -1,0 +1,34 @@
+[
+    {
+        "id": "b1",
+        "title": "Визуальная новелла \"NITT\"",
+        "description": "NITT - это новелла, сочетающая в себе сразу множество жанров: квест, хоррор, рпг и т.д.",
+        "imageSrc": "/bcph_nitt.png",
+        "skills": ["Английский язык", "Русский язык", "Python", "Графический дизайн", "RenPy"],
+        "fullText": "bla-bla-bla"
+    },
+    {
+        "id": "b2",
+        "title": "Сайт-портфолио на чистом HTML, CCS, JS",
+        "description": "Сайт разработчика - отражение его навыков.",
+        "imageSrc": "/bcph_portfolio.png",
+        "skills": ["HTML, CSS, JS", "Графический дизайн"],
+        "fullText": "bla-bla-bla"
+    },
+    {
+        "id": "b3",
+        "title": "Бот для текстовых новелл во ВКонтакте",
+        "description": "Бот, позволявший параллельно проигрывать новеллы с сохранением прогресса, достижениями.",
+        "imageSrc": "/bcph_caxapool.png",
+        "skills": ["Python", "SQLite", "API"],
+        "fullText": "bla-bla-bla"
+    },
+    {
+        "id": "b4",
+        "title": "Тестирование в рамках программы VK Testers",
+        "description": "Ручное тестирование продуктов ВКонтакте: веб-сайта, приложений, сервисов.",
+        "imageSrc": "/bcph_vkt.png",
+        "skills": ["Ручное тестирование", "API"],
+        "fullText": "bla-bla-bla"
+    }
+]

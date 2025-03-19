@@ -53,7 +53,9 @@ window.addEventListener('load', function () {
     let currentPos = 0;
     const header = document.getElementsByTagName('nav')[0];
     const headerH = header.offsetHeight + 50;
-
+    if (window.location.hash) {
+        history.replaceState(null, null, ' ');
+    }
     sections.forEach(section => {
         section.style.scrollMarginBlockStart = `${headerH}px`;
     });

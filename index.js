@@ -5,6 +5,7 @@ window.addEventListener('load', function () {
     const bcsLinks = document.querySelectorAll('.brainchild');
     const buttonL = document.getElementById('ar1');
     const buttonR = document.getElementById('ar2');
+    const addObj = document.getElementById('add');
     let bcsCurP = 0;
     let currentPos = 0;
     const header = document.getElementsByTagName('nav')[0];
@@ -84,5 +85,37 @@ window.addEventListener('load', function () {
                 behavior: 'smooth'
             });
         }
+    });
+
+    addObj.addEventListener('click', function(event) {
+        let text = `<div class="brainchild" id="b1">
+            <button class="more-but"><p class="mbt">Подробнее</p></button>
+            <img src="/bcph_nitt.png" class="bcp" />
+            <div class="bcwp">
+                <h2>Визуальная новелла "NITT"</h2>
+                <p class="three-line-ellipsis text-of-prj">
+                    NITT - это новелла, сочетающая в себе сразу множество жанров:
+                    квест, хоррор, рпг и т.д.
+                </p>
+                <div class="know-cont brch-kn-cont">
+                    <div class="skill-cont">
+                        <h4 class="skillH noselect">Английский язык</h4>
+                    </div>
+                    <div class="skill-cont">
+                        <h4 class="skillH noselect">Русский язык</h4>
+                    </div>
+                    <div class="skill-cont">
+                        <h4 class="skillH noselect">Python</h4>
+                    </div>
+                    <div class="skill-cont">
+                        <h4 class="skillH noselect">Графический дизайн</h4>
+                    </div>
+                    <div class="skill-cont">
+                        <h4 class="skillH noselect">RenPy</h4>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+        bcs.insertAdjacentHTML("beforeend", text);
     });
 });

@@ -11,9 +11,11 @@
     justify-content: center; /* Центрирование по горизонтали */
 	margin-top: calc(-2.5vh);/* Отступ сверху на 10px от brainchild */
     width: 100%; /* Ширина контейнера */
-	padding-bottom: 40vh;
 }
 
+[display="none"]{
+	display: none;
+}
 
 .cont{
 	color: var(--color-navy);
@@ -58,9 +60,9 @@
 
 
 .bcs-wrapper {
-    position: relative; /* Делаем контейнер относительным для позиционирования стрелочек */
+    position: block; /* Делаем контейнер относительным для позиционирования стрелочек */
     width: 100%; /* Ширина контейнера */
-    overflow: visible; /* Скрываем всё, что выходит за пределы */
+    overflow-y: scroll; /* Скрываем всё, что выходит за пределы */
 }
 
 .header {
@@ -678,7 +680,8 @@ nav a {
 
 .content-container .content-wrapper {
 	flex-grow: 1; /* Растягиваем контент на всю доступную высоту */
-	overflow-y: auto; /* Прокрутка только внутри контента */
+	overflow-y: scroll; /* Прокрутка только внутри контента */
+	
 }
 
 .content-container {
@@ -687,8 +690,7 @@ nav a {
 	margin-right: 3vw;
 	padding: 3vmin;
 	background-color: var(--color-white);
-	max-height: 77vh; /* Минимальная высота, но контейнер может растягиваться */
-	overflow: visible; /* Убираем прокрутку внутри контейнера */
+	
 
 	-webkit-clip-path: polygon(
 		0px calc(100% - 10px),
@@ -801,7 +803,6 @@ nav a {
 
 .bcs {
 	display: flex;
-	overflow-x: auto;
 	overflow-y: hidden;
 	gap: 14px;
 	margin-top: 3vh;
@@ -839,14 +840,112 @@ nav a {
 	cursor:pointer;
 }
 
+.brainchildMore{
+	position: relative;
+	background-color: var(--color-navy);
+	min-width: 20vw;
+	overflow-x: scroll;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	min-height: 65vh;
+	transition: 0.2s;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+	cursor: pointer;
+
+	-webkit-clip-path: polygon(
+		0px calc(100% - 10px),
+		2px calc(100% - 10px),
+		2px calc(100% - 6px),
+		4px calc(100% - 6px),
+		4px calc(100% - 4px),
+		6px calc(100% - 4px),
+		6px calc(100% - 2px),
+		10px calc(100% - 2px),
+		10px 100%,
+		calc(100% - 10px) 100%,
+		calc(100% - 10px) calc(100% - 2px),
+		calc(100% - 6px) calc(100% - 2px),
+		calc(100% - 6px) calc(100% - 4px),
+		calc(100% - 4px) calc(100% - 4px),
+		calc(100% - 4px) calc(100% - 6px),
+		calc(100% - 2px) calc(100% - 6px),
+		calc(100% - 2px) calc(100% - 10px),
+		100% calc(100% - 10px),
+		100% 10px,
+		calc(100% - 2px) 10px,
+		calc(100% - 2px) 6px,
+		calc(100% - 4px) 6px,
+		calc(100% - 4px) 4px,
+		calc(100% - 6px) 4px,
+		calc(100% - 6px) 2px,
+		calc(100% - 10px) 2px,
+		calc(100% - 10px) 0px,
+		10px 0px,
+		10px 2px,
+		6px 2px,
+		6px 4px,
+		4px 4px,
+		4px 6px,
+		2px 6px,
+		2px 10px,
+		0px 10px
+	);
+
+	        clip-path: polygon(
+		0px calc(100% - 10px),
+		2px calc(100% - 10px),
+		2px calc(100% - 6px),
+		4px calc(100% - 6px),
+		4px calc(100% - 4px),
+		6px calc(100% - 4px),
+		6px calc(100% - 2px),
+		10px calc(100% - 2px),
+		10px 100%,
+		calc(100% - 10px) 100%,
+		calc(100% - 10px) calc(100% - 2px),
+		calc(100% - 6px) calc(100% - 2px),
+		calc(100% - 6px) calc(100% - 4px),
+		calc(100% - 4px) calc(100% - 4px),
+		calc(100% - 4px) calc(100% - 6px),
+		calc(100% - 2px) calc(100% - 6px),
+		calc(100% - 2px) calc(100% - 10px),
+		100% calc(100% - 10px),
+		100% 10px,
+		calc(100% - 2px) 10px,
+		calc(100% - 2px) 6px,
+		calc(100% - 4px) 6px,
+		calc(100% - 4px) 4px,
+		calc(100% - 6px) 4px,
+		calc(100% - 6px) 2px,
+		calc(100% - 10px) 2px,
+		calc(100% - 10px) 0px,
+		10px 0px,
+		10px 2px,
+		6px 2px,
+		6px 4px,
+		4px 4px,
+		4px 6px,
+		2px 6px,
+		2px 10px,
+		0px 10px
+	);
+}
+
 .brainchild {
+	display: inline-block;
 	position: relative;
 	background-color: var(--color-navy);
 	min-width: 20vw;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
-	height: 65vh;
+	min-height: 65vh;
 	transition: 0.2s;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */
@@ -960,9 +1059,6 @@ nav a {
 }
 
 @media (max-width: 1100px) {
-	.brainchild {
-		min-width: 50vmin;
-	}
 	.content-container {
 		padding: 4vmax;
 	}
@@ -1006,6 +1102,21 @@ nav a {
 		text-align: justify;
 	}
 }
+
+.brainchildMore p {
+	padding-inline: 4%;
+	text-align: justify;
+	color: var(--color-whgreen);
+}
+
+.brainchildMore h2 {
+	text-align: center;
+	padding-inline: 6%;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	color: var(--color-whgreen);
+}
+
 
 .brainchild p {
 	padding-inline: 4%;
@@ -1094,19 +1205,3 @@ nav a {
 	margin: 5px;
 	text-shadow: 1px black;
 }
-
-
-.overlay{
-	background-color: var(--color-navyGlass);
-	width: 100%;
-	height: 100%;
-	z-index: 120;
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: none;
-}
-
-.overlay.show {
-	display: block;
-  }

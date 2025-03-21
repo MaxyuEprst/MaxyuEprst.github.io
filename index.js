@@ -1,9 +1,7 @@
 async function loadProjects() {
     try {
-        // Получаем данные с помощью fetch()
-        const response = await fetch('/projects.json'); // Убедись, что путь правильный
-        
-        // Преобразуем ответ в JSON
+        const response = await fetch('/projects.json');
+
         const projects = await response.json();
 
         return projects;
@@ -15,8 +13,9 @@ async function loadProjects() {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const bcs = document.querySelector('.bcs');
+    const arwr = document.querySelector('.arrs-wr');
     const projects = await loadProjects();
-
+    
     projects.forEach((project, index) => {
         let text = `
             <div class="brainchild" id="b${index + 1}">
@@ -39,6 +38,50 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
         bcs.insertAdjacentHTML("beforeend", text);
     });
+
+    const brainchildren = document.querySelectorAll('.brainchild');
+    brainchildren.forEach(brainchild => {
+        brainchild.addEventListener('click', function() {
+            const existingBrainchildMore = document.querySelector('.brainchildMore');
+            if (existingBrainchildMore) {
+                existingBrainchildMore.remove();
+            }
+    
+            const projectData = projects.find(item => item.id === brainchild.id);
+
+            let text = `
+                <div class="brainchildMore" id="${projectData.id}">
+                    <div class="bcwp">
+                        <h2>${projectData.title}</h2>
+                        <p class="three-line-ellipsis text-of-prj">
+                            ${projectData.description}
+                        </p>
+                        <div class="know-cont brch-kn-cont">
+                        ${projectData.skills.map(skill => `
+                            <div class="skill-cont">
+                                <h4 class="skillH noselect">${skill}</h4>
+                            </div>
+                        `).join('')}
+                    </div>
+                    </div>
+                    <div class="full-text">${projectData.fullText}</div>
+                </div>
+            `;
+    
+            bcs.insertAdjacentHTML("beforeend", text);
+            brainchildren.forEach(Brainchild => {
+                Brainchild.style.display = 'none';
+            });
+            arwr.setAttribute("display", "none");
+        });
+    });
+    
+});
+window.addEventListener('resize', () => {
+    const headerH = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.content-container h2').forEach(h2 => {
+        h2.style.scrollMarginTop = `${headerH}px`;
+    });
 });
 
 window.addEventListener('load', function () {
@@ -53,6 +96,7 @@ window.addEventListener('load', function () {
     let currentPos = 0;
     const header = document.getElementsByTagName('nav')[0];
     const headerH = header.offsetHeight + 50;
+    
     if (window.location.hash) {
         history.replaceState(null, null, ' ');
     }
@@ -115,7 +159,6 @@ window.addEventListener('load', function () {
         }
     
     });
-    
     buttonR.addEventListener('click', function(event) {
         const bcs = document.querySelector('.bcs');
         const bcsLinks = document.querySelectorAll('.brainchild');
@@ -133,4 +176,5 @@ window.addEventListener('load', function () {
             });
         }
     });
+
 });

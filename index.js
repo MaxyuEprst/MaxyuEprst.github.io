@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     projects.forEach((project, index) => {
         let text = `
-            <div class="brainchild" id="b${index + 1}">
+            <div class="brainchild" id="${index + 1}">
                 <button class="more-but"><p class="mbt">Подробнее</p></button>
                 <img src="${project.imageSrc}" class="bcp" />
                 <div class="bcwp">
@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 <h4 class="skillH noselect">${skill}</h4>
                             </div>
                         `).join('')}
+                        </div>
+                        <div class="full-text"><p>${projectData.fullText}</p></div>
                     </div>
-                    </div>
-                    <div class="full-text">${projectData.fullText}</div>
                 </div>
             `;
     

@@ -773,7 +773,7 @@ nav a {
 
 .content-container p {
 	font-size: clamp(18px, 5vmin, 24px);
-	text-indent: 1.7vw;
+	text-indent: 1.3vw;
 	text-align: justify;
 }
 
@@ -791,6 +791,20 @@ nav a {
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
+}
+
+.full-text{
+	padding-block: 1ch;
+	text-indent: 1vw;
+	text-align: justify;
+	color: var(--color-whgreen);
+	font-size: clamp(12px, 4vmin, 22px);
+}
+
+
+.full-text p{
+	font-size: clamp(12px, 4vmin, 22px);
+	margin: 0;
 }
 
 .know-cont {
@@ -1043,7 +1057,7 @@ nav a {
 }
 
 .bcwp {
-	padding: 10px;
+	padding: 12px;
 }
 
 @media (min-width: 1100px) {
@@ -1095,36 +1109,15 @@ nav a {
 	nav a.active {
 		font-size: clamp(18px, 7vw, 32px);
 	}
-
-	.text-of-prj {
-		padding: 1vh 0;
-		text-indent: 0.6vh;
-		text-align: justify;
-	}
 }
 
-.brainchildMore p {
-	padding-inline: 4%;
+.brainchild p, .brainchildMore p{
+	padding-inline: 1%;
 	text-align: justify;
 	color: var(--color-whgreen);
 }
 
-.brainchildMore h2 {
-	text-align: center;
-	padding-inline: 6%;
-	margin-top: 1vh;
-	margin-bottom: 1vh;
-	color: var(--color-whgreen);
-}
-
-
-.brainchild p {
-	padding-inline: 4%;
-	text-align: justify;
-	color: var(--color-whgreen);
-}
-
-.brainchild h2 {
+.brainchild h2, .brainchildMore h2{
 	text-align: center;
 	padding-inline: 6%;
 	margin-top: 1vh;

@@ -690,8 +690,6 @@ nav a {
 	margin-right: 3vw;
 	padding: 3vmin;
 	background-color: var(--color-white);
-	
-
 	-webkit-clip-path: polygon(
 		0px calc(100% - 10px),
 		2px calc(100% - 10px),

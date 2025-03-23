@@ -67,12 +67,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
             `;
-    
+            
             bcs.insertAdjacentHTML("beforeend", text);
             brainchildren.forEach(Brainchild => {
                 Brainchild.style.display = 'none';
             });
-            arwr.setAttribute("display", "none");
+            arwr.style.display = 'none';
+
+            const bchm = document.querySelector('.brainchildMore');
+            bchm.addEventListener('click', function() {
+                bchm.style.display = 'none';
+                arwr.style.display = 'flex';
+                brainchildren.forEach(Brainchild => {
+                    Brainchild.style.display = 'inline-block';
+                });
+            });
         });
     });
     

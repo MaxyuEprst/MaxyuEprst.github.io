@@ -1,6 +1,6 @@
 :root{
 	--color-yellow: #F8DC81;
-	--color-white: #EFF7E1;
+	--color-white: #eff7e1;
 	--color-whgreen: #A2D0C1;
 	--color-navy: #214151;
 	--color-navyGlass: #21415191;
@@ -862,7 +862,6 @@ nav a {
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
-	min-height: 65vh;
 	transition: 0.2s;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */

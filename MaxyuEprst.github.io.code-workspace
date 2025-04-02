@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "MaxyuEprst.github.io",
+			"path": "."
+		}
+	],
+	"settings": {
+		"screencastMode.fontSize": 50,
+		"liveServer.settings.multiRootWorkspaceName": "maxyuSite"
+	}
+}

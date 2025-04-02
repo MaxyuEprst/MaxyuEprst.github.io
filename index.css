@@ -953,7 +953,7 @@ nav a {
 	display: inline-block;
 	position: relative;
 	background-color: var(--color-navy);
-	min-width: 20vw;
+	min-width: clamp(250px, 65vw, 80px);
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
@@ -1059,9 +1059,6 @@ nav a {
 }
 
 @media (min-width: 1100px) {
-	.brainchild {
-		max-width: 30vmin;
-	}
 	
 	.arrs-wr {
 		justify-content: left; /* Центрирование по горизонтали */
@@ -1079,10 +1076,7 @@ nav a {
 		width: 6vmin;
 	}
 }
-@media (max-width: 600px) {
-	.brainchild {
-		min-width: 65vmin;
-	}
+@media (max-width: 700px) {
 
 	.header {
 		width: auto;

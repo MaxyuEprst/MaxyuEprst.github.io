@@ -858,9 +858,7 @@ nav a {
 	background-color: var(--color-navy);
 	min-width: 20vw;
 	overflow-x: scroll;
-	width: -webkit-fit-content;
-	width: -moz-fit-content;
-	width: fit-content;
+	width: 100%;
 	transition: 0.2s;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */

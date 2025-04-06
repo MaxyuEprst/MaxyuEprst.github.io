@@ -7,7 +7,7 @@
 }
 .integratedImage{
 	margin-block: 20px;
-	margin-inline: 1vw;
+	margin-inline: 1.5vw;
 }
 
 .arrs-wr {
@@ -1159,7 +1159,7 @@ nav a {
 
 @media (max-width: 1100px) {
 	.content-container {
-		padding: 4vmax;
+		padding: 2.4vmax;
 	}
 	.arrow {
 		height: 6vmin;

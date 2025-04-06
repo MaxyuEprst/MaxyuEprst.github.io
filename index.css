@@ -8,7 +8,6 @@
 .integratedImage{
 	margin-block: 20px;
 	margin-inline: 1vw;
-	
 }
 
 .arrs-wr {
@@ -76,7 +75,7 @@
 	position: -webkit-sticky;
 	position: sticky;
 	top: 1.8vh;
-	margin-left: 25px;
+	margin-left: 10vw;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
@@ -798,7 +797,7 @@ nav a {
 }
 
 .full-text{
-	padding-block: 1ch;
+	padding-top: 2ch;
 	text-indent: 1vw;
 	text-align: justify;
 	color: var(--color-whgreen);
@@ -1058,7 +1057,7 @@ nav a {
 }
 
 .bcwp {
-	padding: 12px;
+	padding-inline: 12px;
 }
 
 
@@ -1166,13 +1165,19 @@ nav a {
 		height: 6vmin;
 		width: 6vmin;
 	}
-	
 }
 
 @media (min-width: 900px) {
     .integratedImage {
-        width: 50vmin;
+        width: 70vmin;
+		display: block; /* Делаем элемент блочным */
+        margin-left: auto; /* Автоматические отступы по бокам */
+        margin-right: auto;
     }
+	.content-container{
+		margin-left: 12vw;
+		margin-right: 12vw;
+	}
 }
 
 
@@ -1180,9 +1185,6 @@ nav a {
 	.integratedImage{
 		width: 98%;
 	}
-}
-
-@media (max-width: 700px) {
 	.header {
 		width: auto;
 		margin-inline: 4px;

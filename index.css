@@ -5,6 +5,11 @@
 	--color-navy: #214151;
 	--color-navyGlass: #21415191;
 }
+.integratedImage{
+	margin-block: 20px;
+	margin-inline: 1vw;
+	
+}
 
 .arrs-wr {
     display: flex;
@@ -1056,50 +1061,6 @@ nav a {
 	padding: 12px;
 }
 
-@media (min-width: 1100px) {
-	
-	.arrs-wr {
-		justify-content: left; /* Центрирование по горизонтали */
-		padding-left: 2vw;
-	}
-
-}
-
-@media (max-width: 1100px) {
-	.content-container {
-		padding: 4vmax;
-	}
-	.arrow {
-		height: 6vmin;
-		width: 6vmin;
-	}
-}
-@media (max-width: 700px) {
-
-	.header {
-		width: auto;
-		margin-inline: 4px;
-	}
-
-	nav {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		flex-wrap: nowrap;
-	}
-
-	nav a {
-		font-size: clamp(16px, 6vw, 30px);
-	}
-
-	nav a:hover {
-		font-size: clamp(16px, 6vw, 30px);
-	}
-
-	nav a.active {
-		font-size: clamp(18px, 7vw, 32px);
-	}
-}
 
 .brainchild p, .brainchildMore p{
 	padding-inline: 1%;
@@ -1187,4 +1148,62 @@ nav a {
 	color: var(--color-navy);
 	margin: 5px;
 	text-shadow: 1px black;
+}
+
+
+@media (min-width: 1100px) {
+	.arrs-wr {
+		justify-content: left; /* Центрирование по горизонтали */
+		padding-left: 2vw;
+	}
+}
+
+@media (max-width: 1100px) {
+	.content-container {
+		padding: 4vmax;
+	}
+	.arrow {
+		height: 6vmin;
+		width: 6vmin;
+	}
+	
+}
+
+@media (min-width: 900px) {
+    .integratedImage {
+        width: 50vmin;
+    }
+}
+
+
+@media (max-width: 900px) {
+	.integratedImage{
+		width: 98%;
+	}
+}
+
+@media (max-width: 700px) {
+	.header {
+		width: auto;
+		margin-inline: 4px;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: nowrap;
+	}
+
+	nav a {
+		font-size: clamp(16px, 6vw, 30px);
+	}
+
+	nav a:hover {
+		font-size: clamp(16px, 6vw, 30px);
+	}
+
+	nav a.active {
+		font-size: clamp(18px, 7vw, 32px);
+	}
 }

@@ -1169,7 +1169,7 @@ nav a {
 
 @media (min-width: 900px) {
     .integratedImage {
-        width: 70vmin;
+        width: 50vw;
 		display: block; /* Делаем элемент блочным */
         margin-left: auto; /* Автоматические отступы по бокам */
         margin-right: auto;

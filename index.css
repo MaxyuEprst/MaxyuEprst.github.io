@@ -46,7 +46,6 @@
     height: 4vmin;
     width: 4vmin;
     cursor: pointer;
-    position: static; /* Убираем абсолютное позиционирование */
 	z-index: 99;
 	color:var(--color-white);
 	-webkit-touch-callout: none; /* iOS Safari */
@@ -64,7 +63,6 @@
 
 
 .bcs-wrapper {
-    position: block; /* Делаем контейнер относительным для позиционирования стрелочек */
     width: 100%; /* Ширина контейнера */
     overflow-y: scroll; /* Скрываем всё, что выходит за пределы */
 }
@@ -130,7 +128,6 @@ nav a {
 	text-decoration: none;
 	transition: 0.2s;
 	font-size: clamp(0px, 5vw, 30px);
-	white-space: nowrap;
 }
 
 .pixel-corners,
@@ -959,7 +956,7 @@ nav a {
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
-	min-height: 65vh;
+	min-height: 60vh;
 	transition: 0.2s;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */
@@ -1180,7 +1177,6 @@ nav a {
 	}
 }
 
-
 @media (max-width: 900px) {
 	.integratedImage{
 		width: 98%;
@@ -1209,3 +1205,4 @@ nav a {
 		font-size: clamp(18px, 7vw, 32px);
 	}
 }
+

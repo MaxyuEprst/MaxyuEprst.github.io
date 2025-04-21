@@ -10,6 +10,33 @@
 	margin-inline: 1.5vw;
 }
 
+.header-of-container{
+	display: flex;
+	flex-direction:row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+#search{
+	height: min-content;
+	font-size: clamp(18px, 5vmin, 24px);
+	align-items: bottom;
+	font-family: "Handjet", serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+	font-variation-settings: "ELGR" 1, "ELSH" 2;
+	font-smooth: never;
+	-webkit-font-smoothing: none;
+	letter-spacing: 0,5em;
+	border-color: var(--color-navy);
+	border-style: solid;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-filter: invert(0%);
+  }
 .arrs-wr {
     display: flex;
     justify-content: center; /* Центрирование по горизонтали */

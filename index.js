@@ -1,9 +1,7 @@
 async function loadProjects() {
     try {
         const response = await fetch('/projects.json');
-
         const projects = await response.json();
-
         return projects;
     } catch (error) {
         console.error('Ошибка загрузки JSON:', error);
@@ -15,9 +13,45 @@ document.addEventListener('DOMContentLoaded', async () => {
     const bcs = document.querySelector('.bcs');
     const arwr = document.querySelector('.arrs-wr');
     const projects = await loadProjects();
-    
+    let brainchildren; // Будет обновляться после добавления проектов
+
+    // Функция поиска, которая использует текущий список brainchildren
+    function search() {
+        const searchInput = document.querySelector('input[type="search"]');
+        const searchTerm = searchInput.value.toLowerCase().trim();
+
+        if (!brainchildren) return; // Если элементы еще не загружены
+
+        if (searchTerm === '') {
+            brainchildren.forEach(brainchild => {
+                brainchild.style.display = 'block';
+            });
+            return;
+        }
+
+        brainchildren.forEach(brainchild => {
+            const skillConts = brainchild.querySelectorAll('.skill-cont');
+            const title = brainchild.querySelector('h2')?.textContent.toLowerCase() || '';
+            
+            let found = false;
+            
+            if (title.includes(searchTerm)) {
+                found = true;
+            }
+            
+            skillConts.forEach(skillCont => {
+                const skillText = skillCont.textContent.toLowerCase().trim();
+                if (skillText.includes(searchTerm)) {
+                    found = true;
+                }
+            });
+
+            brainchild.style.display = found ? 'block' : 'none';
+        });
+    }
+
     projects.forEach((project, index) => {
-        let text = `
+        const text = `
             <div class="brainchild" id="${index + 1}">
                 <button class="more-but"><p class="mbt">Подробнее</p></button>
                 <img src="${project.imageSrc}" class="bcp" />
@@ -39,21 +73,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         bcs.insertAdjacentHTML("beforeend", text);
     });
 
-    const brainchildren = document.querySelectorAll('.brainchild');
+    brainchildren = document.querySelectorAll('.brainchild');
+    
+    const searchInput = document.querySelector('input[type="search"]');
+    searchInput.addEventListener('input', search);
+    searchInput.addEventListener('change', search);
+
     brainchildren.forEach(brainchild => {
         brainchild.addEventListener('click', function() {
             const existingBrainchildMore = document.querySelector('.brainchildMore');
             if (existingBrainchildMore) {
                 existingBrainchildMore.remove();
             }
-    
-            const projectData = projects.find(item => item.id === brainchild.id);
 
-            let text = `
+            const projectId = brainchild.id;
+            const projectData = projects.find(item => item.id === projectId);
+
+            if (!projectData) return;
+
+            const text = `
                 <div class="brainchildMore" id="${projectData.id}">
                     <div class="bcwp">
                         <h2>${projectData.title}</h2>
-                        <p class="three-line-ellipsis text-of-prj">
+                        <p class="text-of-prj">
                             ${projectData.description}
                         </p>
                         <div class="know-cont brch-kn-cont">
@@ -69,32 +111,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             
             bcs.insertAdjacentHTML("beforeend", text);
-            brainchildren.forEach(Brainchild => {
-                Brainchild.style.display = 'none';
-            });
+            brainchildren.forEach(bc => bc.style.display = 'none');
             arwr.style.display = 'none';
 
             const bchm = document.querySelector('.brainchildMore');
             bchm.addEventListener('click', function() {
-                bchm.style.display = 'none';
+                bchm.remove();
                 arwr.style.display = 'flex';
-                brainchildren.forEach(Brainchild => {
-                    Brainchild.style.display = 'inline-block';
-                });
+                search(); 
             });
         });
     });
-    
-});
-window.addEventListener('resize', () => {
-    const headerH = document.querySelector('header').offsetHeight;
-    document.querySelectorAll('.content-container h2').forEach(h2 => {
-        h2.style.scrollMarginTop = `${headerH}px`;
+    window.addEventListener('resize', () => {
+        const headerH = document.querySelector('header').offsetHeight;
+        document.querySelectorAll('.content-container h2').forEach(h2 => {
+            h2.style.scrollMarginTop = `${headerH}px`;
+        });
     });
-});
 
-window.addEventListener('load', function () {
-    const bcs = document.querySelector('.bcs');
     const bcsLinks = document.querySelectorAll('.brainchild');
     const sections = document.querySelectorAll('.content-container');
     const navLinks = document.querySelectorAll('nav a');
@@ -109,6 +143,7 @@ window.addEventListener('load', function () {
     if (window.location.hash) {
         history.replaceState(null, null, ' ');
     }
+    
     sections.forEach(section => {
         section.style.scrollMarginBlockStart = `${headerH}px`;
     });
@@ -151,39 +186,32 @@ window.addEventListener('load', function () {
     });
 
     buttonL.addEventListener('click', function(event) {
-        const bcs = document.querySelector('.bcs');
-        const bcsLinks = document.querySelectorAll('.brainchild');
         if (bcsCurP > 0) {
             bcsCurP--;
             bcs.scrollTo({
                 left: bcsLinks[bcsCurP].offsetLeft,
                 behavior: 'smooth'
             });
-        }
-        else{
+        } else {
             bcs.scrollTo({
                 left: 0,
                 behavior: 'smooth'
             });
         }
-    
     });
+
     buttonR.addEventListener('click', function(event) {
-        const bcs = document.querySelector('.bcs');
-        const bcsLinks = document.querySelectorAll('.brainchild');
         if (bcsCurP < bcsLinks.length - 1) {
             bcsCurP++;
             bcs.scrollTo({
                 left: bcsLinks[bcsCurP].offsetLeft,
                 behavior: 'smooth'
             });
-        }
-        else{
+        } else {
             bcs.scrollTo({
                 left: bcsLinks[bcsLinks.length - 1].offsetLeft,
                 behavior: 'smooth'
             });
         }
     });
-
 });

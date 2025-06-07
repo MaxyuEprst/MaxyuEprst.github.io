@@ -1,3 +1,42 @@
+function search() {
+    const brainchildren = document.querySelectorAll('.brainchild');
+    const searchInput = document.querySelector('input[type="search"]');
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    const selectedSkills = Array.from(document.querySelectorAll('.skill-cont.selected-skill .skillH'))
+                                .map(skillH => skillH.textContent.toLowerCase().trim());
+
+    if (!brainchildren.length) return;
+
+    if (searchTerm === '' && selectedSkills.length === 0) {
+        brainchildren.forEach(brainchild => {
+            brainchild.style.display = 'block';
+        });
+        return;
+    }
+
+    brainchildren.forEach(brainchild => {
+        const projectSkills = Array.from(brainchild.querySelectorAll('.skill-cont .skillH'))
+                                .map(skillH => skillH.textContent.toLowerCase().trim());
+        const title = brainchild.querySelector('h2')?.textContent.toLowerCase() || '';
+        
+        let matchesSearchTerm = true;
+        let matchesSelectedSkills = true;
+
+        if (searchTerm !== '') {
+            matchesSearchTerm = title.includes(searchTerm) || projectSkills.some(skill => skill.includes(searchTerm));
+        }
+
+        if (selectedSkills.length > 0) {
+            matchesSelectedSkills = selectedSkills.some(selectedSkill => {
+                return title.includes(selectedSkill) || projectSkills.includes(selectedSkill);
+            });
+        }
+        
+        brainchild.style.display = (matchesSearchTerm && matchesSelectedSkills) ? 'block' : 'none';
+    });
+}
+
 async function loadProjects() {
     try {
         const response = await fetch('/projects.json');
@@ -13,42 +52,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const bcs = document.querySelector('.bcs');
     const arwr = document.querySelector('.arrs-wr');
     const projects = await loadProjects();
-    let brainchildren; // Будет обновляться после добавления проектов
-
-    // Функция поиска, которая использует текущий список brainchildren
-    function search() {
-        const searchInput = document.querySelector('input[type="search"]');
-        const searchTerm = searchInput.value.toLowerCase().trim();
-
-        if (!brainchildren) return; // Если элементы еще не загружены
-
-        if (searchTerm === '') {
-            brainchildren.forEach(brainchild => {
-                brainchild.style.display = 'block';
-            });
-            return;
-        }
-
-        brainchildren.forEach(brainchild => {
-            const skillConts = brainchild.querySelectorAll('.skill-cont');
-            const title = brainchild.querySelector('h2')?.textContent.toLowerCase() || '';
-            
-            let found = false;
-            
-            if (title.includes(searchTerm)) {
-                found = true;
-            }
-            
-            skillConts.forEach(skillCont => {
-                const skillText = skillCont.textContent.toLowerCase().trim();
-                if (skillText.includes(searchTerm)) {
-                    found = true;
-                }
-            });
-
-            brainchild.style.display = found ? 'block' : 'none';
-        });
-    }
 
     projects.forEach((project) => {
         const text = `
@@ -73,14 +76,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         bcs.insertAdjacentHTML("beforeend", text);
     });
 
-    brainchildren = document.querySelectorAll('.brainchild');
-    
-    searchInput = document.querySelector('input[type="search"]');
+    const searchInput = document.querySelector('input[type="search"]');
     searchInput.addEventListener('input', search);
     searchInput.addEventListener('change', search);
 
+    const brainchildrenElements = document.querySelectorAll('.brainchild');
 
-    brainchildren.forEach(brainchild => {
+    brainchildrenElements.forEach(brainchild => {
         brainchild.addEventListener('click', function() {
             const existingBrainchildMore = document.querySelector('.brainchildMore');
             if (existingBrainchildMore) {
@@ -112,17 +114,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             
             bcs.insertAdjacentHTML("beforeend", text);
-            brainchildren.forEach(bc => bc.style.display = 'none');
+            brainchildrenElements.forEach(bc => bc.style.display = 'none');
             arwr.style.display = 'none';
 
             const bchm = document.querySelector('.brainchildMore');
             bchm.addEventListener('click', function() {
                 bchm.remove();
                 arwr.style.display = 'flex';
-                search(); 
+                search();
             });
         });
     });
+
     window.addEventListener('resize', () => {
         const headerH = document.querySelector('header').offsetHeight;
         document.querySelectorAll('.content-container h2').forEach(h2 => {
@@ -177,7 +180,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
     window.addEventListener('keydown', function(event) {
         if (event.code === 'KeyS') {
-            event.preventDefault();
             searchInput.focus();
         }
     });
@@ -223,27 +225,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-document.addEventListener('click', function(e) {
-    const skillCont = e.target.closest('.skill-cont');
-    if (skillCont) {
-        const skillText = skillCont.querySelector('.skillH')?.textContent.trim();
-        const searchInput = document.querySelector('input[type="search"]');
-        const event = new Event('input', {
-            bubbles: true,
-            cancelable: true
-        });
-
-        if (skillText && searchInput && !skillCont.classList.contains("selected-skill")) {
-            skillCont.classList += ' selected-skill';
-            skillCont.querySelector('.skillH').classList += ' selected-skill-text';
-            searchInput.value = skillText;
-            searchInput.dispatchEvent(event);
+document.querySelectorAll('.content-container .skill-cont').forEach(skillCont => {
+    skillCont.addEventListener('click', function(e) {
+        const skillText = this.querySelector('.skillH')?.textContent.trim();
+        
+        if (skillText) {
+            this.classList.toggle('selected-skill');
+            this.querySelector('.skillH').classList.toggle('selected-skill-text');
+            search();
         }
-        else if(skillText && searchInput){
-            searchInput.value = "";
-            searchInput.dispatchEvent(event);
-            skillCont.classList = 'skill-cont';
-            skillCont.querySelector('.skillH').classList = 'skillH noselect';
-        }
-    }
+    });
 });

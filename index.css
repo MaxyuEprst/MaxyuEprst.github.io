@@ -1114,9 +1114,8 @@ nav a {
 	        margin-inline-start: 15px;
 	-webkit-margin-after: 12px;
 	        margin-block-end: 12px;
-	height: -webkit-min-content;
-	height: -moz-min-content;
-	height: min-content;
+	height: fit-content;
+	cursor: pointer;
 
 	-webkit-clip-path: polygon(
 		0px calc(100% - 4px),
@@ -1165,14 +1164,28 @@ nav a {
 	);
 }
 
+.selected-skill{
+	background-color: var(--color-navy);
+}
+.selected-skill-text{
+	color: var(--color-yellow);
+}
 .skillH {
 	font-size: clamp(16px, 1.5vw, 24px);
 	text-align: center;
 	padding-inline: 14px;
-	color: var(--color-navy);
 	margin: 5px;
 	text-shadow: 1px black;
 }
+
+.skill-cont:hover{
+	background-color: var(--color-navy);
+}
+
+.skill-cont:hover .skillH{
+	color: var(--color-yellow);
+}
+
 
 
 @media (min-width: 1100px) {

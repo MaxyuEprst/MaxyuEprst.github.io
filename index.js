@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
-    projects.forEach((project, index) => {
+    projects.forEach((project) => {
         const text = `
-            <div class="brainchild" id="${index + 1}">
+            <div class="brainchild" id="${project.id}">
                 <button class="more-but"><p class="mbt">Подробнее</p></button>
                 <img src="${project.imageSrc}" class="bcp" />
                 <div class="bcwp">
@@ -75,9 +75,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     brainchildren = document.querySelectorAll('.brainchild');
     
-    const searchInput = document.querySelector('input[type="search"]');
+    searchInput = document.querySelector('input[type="search"]');
     searchInput.addEventListener('input', search);
     searchInput.addEventListener('change', search);
+
 
     brainchildren.forEach(brainchild => {
         brainchild.addEventListener('click', function() {
@@ -134,12 +135,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const navLinks = document.querySelectorAll('nav a');
     const buttonL = document.getElementById('ar1');
     const buttonR = document.getElementById('ar2');
-    const addObj = document.getElementById('add');
     let bcsCurP = 0;
     let currentPos = 0;
     const header = document.getElementsByTagName('nav')[0];
     const headerH = header.offsetHeight + 50;
     
+
     if (window.location.hash) {
         history.replaceState(null, null, ' ');
     }
@@ -172,6 +173,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             currentPos = (currentPos + 1) % navLinks.length;
             navLinks[currentPos].classList.add('active');
             navLinks[currentPos].click();
+        }
+    });
+    window.addEventListener('keydown', function(event) {
+        if (event.code === 'KeyS') {
+            event.preventDefault();
+            searchInput.focus();
         }
     });
 
@@ -214,4 +221,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
     });
+});
+
+document.addEventListener('click', function(e) {
+    const skillCont = e.target.closest('.skill-cont');
+    if (skillCont) {
+        const skillText = skillCont.querySelector('.skillH')?.textContent.trim();
+        const searchInput = document.querySelector('input[type="search"]');
+        const event = new Event('input', {
+            bubbles: true,
+            cancelable: true
+        });
+
+        if (skillText && searchInput && !skillCont.classList.contains("selected-skill")) {
+            skillCont.classList += ' selected-skill';
+            skillCont.querySelector('.skillH').classList += ' selected-skill-text';
+            searchInput.value = skillText;
+            searchInput.dispatchEvent(event);
+        }
+        else if(skillText && searchInput){
+            searchInput.value = "";
+            searchInput.dispatchEvent(event);
+            skillCont.classList = 'skill-cont';
+            skillCont.querySelector('.skillH').classList = 'skillH noselect';
+        }
+    }
 });

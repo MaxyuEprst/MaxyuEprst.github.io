@@ -225,14 +225,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-document.querySelectorAll('.content-container .skill-cont').forEach(skillCont => {
-    skillCont.addEventListener('click', function(e) {
-        const skillText = this.querySelector('.skillH')?.textContent.trim();
-        
-        if (skillText) {
-            this.classList.toggle('selected-skill');
-            this.querySelector('.skillH').classList.toggle('selected-skill-text');
-            search();
-        }
-    });
+document.addEventListener('click', function(e) {
+    const skillCont = e.target.closest('.skill-cont');
+    if (!skillCont) return;
+
+    const skillText = skillCont.querySelector('.skillH')?.textContent.trim();
+    if (skillText) {
+        skillCont.classList.toggle('selected-skill');
+        skillCont.querySelector('.skillH').classList.toggle('selected-skill-text');
+        search();
+    }
 });

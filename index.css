@@ -1073,6 +1073,17 @@ nav a {
 	);
 }
 
+.egg{
+	background-color: red;
+	height: 50px;
+	width: 50px;
+	border-radius:100%;
+	display: none;
+	position: relative;
+    left: 0;
+    transition: left 0.1s ease;
+}
+
 .brainchild:hover {
 	opacity: 0.9;
 }

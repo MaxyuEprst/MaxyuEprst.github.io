@@ -223,6 +223,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
     });
+
+
+    const eg_tr = document.querySelector('.egg-triggerer');
+    const egg = document.querySelector('.egg');
+    eg_tr.addEventListener('click', function(event) {
+        egg.style.display = "block";
+        const parent = document.querySelector('.content-container');
+        const maxPosition = parent.offsetWidth - egg.offsetWidth;
+
+        
+        let position = 0;
+        const interval = setInterval(() => {
+            position += 5;
+            egg.style.left = position + "px";
+            
+            if (position >= maxPosition) {
+                clearInterval(interval);
+            }
+        }, 20);
+    });
 });
 
 document.addEventListener('click', function(e) {
